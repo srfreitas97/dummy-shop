@@ -1,0 +1,14 @@
+{
+  "name": "dummy-shop",
+  "version": "1.0.0",
+  "description": "A dummy shopping web app made using Node Js.",
+  "main": "app.js",
+  "repository": "https://github.com/srfreitas97/dummy-shop.git",
+  "author": "Samuel Freitas",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
