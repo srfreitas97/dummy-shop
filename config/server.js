@@ -4,8 +4,10 @@ const app = express()
 const shopRoutes = require('../routes/shop')
 const errorHandler = require('../middlewares/errorHandler')
 const path = require('path')
+const bodyParser = require('body-parser')
 
-app.use(express.json())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded())
 app.use(express.static(path.join(__dirname, '../', 'public')))
 app.use('/',shopRoutes)
 app.use( (req,res,next)=> {
