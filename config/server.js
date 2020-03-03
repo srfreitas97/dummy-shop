@@ -6,6 +6,8 @@ const errorHandler = require('../middlewares/errorHandler')
 const path = require('path')
 const bodyParser = require('body-parser')
 
+app.set('view engine', 'pug')
+app.set('views', 'views')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
 app.use(express.static(path.join(__dirname, '../', 'public')))
