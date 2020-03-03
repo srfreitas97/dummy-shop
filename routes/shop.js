@@ -5,11 +5,11 @@ const products = []
 
 
 router.get('/',(req,res,next) => {
-    res.sendFile(path.join(rootDir, 'views', 'shop.html'))
+    res.render('shop', { products:products, docTitle: 'Dummy Shop' })
 })
 
 router.get('/add-product', (req,res,next) => {
-    res.sendFile(path.join(rootDir, 'views', 'add-product.html'))
+    res.render('add-products')
 })
 
 router.post('/add-product', (req,res,next) => {
