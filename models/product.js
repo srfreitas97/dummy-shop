@@ -1,20 +1,17 @@
-exports = class Product{
+const products = []
 
-    static products = [];
+module.exports = class Product{
 
     constructor(title){
-
-        this._title = title;
-
+        this._title = title
     }
 
     save(){
         products.push(this)
     }
 
-
     static fetchAll(){
-        return this. products
+        return products
     }
 
 }
