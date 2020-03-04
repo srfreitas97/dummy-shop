@@ -4,19 +4,17 @@ const app = express()
 const shopRoutes = require('../routes/shop')
 const errorHandler = require('../middlewares/errorHandler')
 const path = require('path')
-const bodyParser = require('body-parser')
 const expressHbs = require('express-handlebars')
 
 app.engine('hbs', expressHbs({layoutsDir: 'views/layouts/', defaultLayout: 'main-layout.hbs'}))
 app.set('view engine', 'hbs')
 app.set('views', 'views')
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded())
+
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname, '../', 'public')))
 app.use('/',shopRoutes)
-app.use( (req,res,next)=> {
-    res.status(404).render('404')
-})
+app.use(errorHandler.get404)
 
 app.listen(process.env.PORT, () => {
     console.log(`Node server running on port ${process.env.PORT}`)
