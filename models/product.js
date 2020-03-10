@@ -22,7 +22,7 @@ module.exports = function Product(title){
 
     this.title = title
 
-    this.fetchAll = function(){
+    this.fetchAll = function(cb){
         const p = path.join(
             path.dirname(
                 process.mainModule.filename
@@ -30,11 +30,10 @@ module.exports = function Product(title){
         )
         fs.readFile(p, (err,fileContent) => {
             if(err){
-                return []
+                return cb([])
             }
-            return JSON.parse(fileContent)
+            return cb(JSON.parse(fileContent))
         })
-        return products
     }
 
     this.save = function(){
