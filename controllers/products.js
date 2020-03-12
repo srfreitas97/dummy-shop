@@ -34,3 +34,12 @@ exports.getShop = (req,res,next) => {
     
 
 }
+
+exports.getCart = (req,res,next) => {
+
+    res.render('cart',{
+        pageTitle : 'Cart',
+        path: '/cart'
+    })
+
+}
